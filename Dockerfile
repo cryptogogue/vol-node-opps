@@ -2,7 +2,7 @@ FROM volition-build-base
 
 WORKDIR /app
 
-COPY ./vol-node-cpp /app
+COPY . /app
 
 RUN cmake .                 \
     && make volition -j4 VERBOSE=1   \
@@ -15,7 +15,6 @@ RUN cmake .                 \
 
 ENTRYPOINT [ "/app/volition" ]
 CMD [ "-c", "/var/lib/volition/volition.ini" ]
-
 
 
 
