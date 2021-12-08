@@ -14,7 +14,7 @@ pushd ${SCRIPT_HOME}
     fi
 
     source $VOL_NODE_CPP/ops/make-version-header.sh
-    docker build -f ./volition-base/Dockerfile -t volition-build-base .
+    docker build -f ./Dockerfile-base -t volition-build-base .
     docker build -f ./Dockerfile --no-cache -t $TAG $VOL_NODE_CPP
     docker push $TAG
 popd

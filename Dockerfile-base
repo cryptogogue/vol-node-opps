@@ -10,8 +10,13 @@ RUN apt-get update          \
         make                \
         openssl             \
         sqlite3             \
-        librocksdb-dev      \
+        libgflags-dev       \
+        libsnappy-dev       \
+        libbz2-dev          \
+        liblz4-dev          \
         libsqlite3-dev      \
+        libzstd-dev         \
+        zlib1g-dev          \
         vim                 \
         valgrind            \
         openssh-client
@@ -56,6 +61,13 @@ RUN git clone -b poco-1.9.1 https://github.com/pocoproject/poco \
     && make install         \
     && cd ..                \
     && rm -r poco
+
+RUN git clone https://github.com/facebook/rocksdb.git \
+    && cd rocksdb           \
+    && make shared_lib      \
+    && make install-shared  \
+    && cd ..                \
+    && rm -r rocksdb
 
 RUN curl -s https://packagecloud.io/install/repositories/immortal/immortal/script.deb.sh | bash \
     && apt install immortal
