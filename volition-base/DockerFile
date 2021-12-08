@@ -10,6 +10,7 @@ RUN apt-get update          \
         make                \
         openssl             \
         sqlite3             \
+        librocksdb-dev      \
         libsqlite3-dev      \
         vim                 \
         valgrind            \

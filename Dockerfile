@@ -15,9 +15,3 @@ RUN cmake .                 \
 
 ENTRYPOINT [ "/app/volition" ]
 CMD [ "-c", "/var/lib/volition/volition.ini" ]
-
-
-
-
-
-
