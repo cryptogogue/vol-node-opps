@@ -12,9 +12,9 @@ pushd ${SCRIPT_HOME}
         echo "TAG is undefined; please specify a tag on the command line or in .env."
         exit 1
     fi
-
+    
     source $VOL_NODE_CPP/ops/make-version-header.sh
     docker build -f ./Dockerfile-base -t volition-build-base .
     docker build -f ./Dockerfile --no-cache -t $TAG $VOL_NODE_CPP
-    docker push $TAG
+
 popd

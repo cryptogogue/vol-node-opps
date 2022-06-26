@@ -14,6 +14,7 @@ RUN apt-get update          \
         libsnappy-dev       \
         libbz2-dev          \
         liblz4-dev          \
+        libsodium-dev       \
         libsqlite3-dev      \
         libzstd-dev         \
         zlib1g-dev          \
@@ -62,12 +63,12 @@ RUN git clone -b poco-1.9.1 https://github.com/pocoproject/poco \
     && cd ..                \
     && rm -r poco
 
-RUN git clone https://github.com/facebook/rocksdb.git \
-    && cd rocksdb           \
-    && make shared_lib      \
-    && make install-shared  \
-    && cd ..                \
-    && rm -r rocksdb
+# RUN git clone https://github.com/facebook/rocksdb.git \
+#     && cd rocksdb           \
+#     && make shared_lib      \
+#     && make install-shared  \
+#     && cd ..                \
+#     && rm -r rocksdb
 
 RUN curl -s https://packagecloud.io/install/repositories/immortal/immortal/script.deb.sh | bash \
     && apt install immortal
